@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warami Services — Email Signatures</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --navy: #1B2A4A;
+    --blue: #2E5CB8;
+    --sky: #6B9BD2;
+    --gold: #D4A843;
+    --gold-dark: #B8903A;
+    --sand: #F4F6FA;
+    --cream: #F9FAFC;
+    --white: #FFFFFF;
+    --grey-400: #999;
+    --grey-600: #666;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-font-smoothing: antialiased; }
+body { font-family: 'Inter', -apple-system, sans-serif; color: var(--navy); background: var(--cream); line-height: 1.6; }
+h1, h2, h3 { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; }
+
+.page-header { background: var(--navy); padding: 48px 0; text-align: center; }
+.page-header h1 { color: var(--white); font-size: 32px; margin-bottom: 8px; }
+.page-header p { color: var(--sky); font-size: 14px; font-weight: 300; }
+
+.container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+
+.sig-section { padding: 48px 0; }
+.sig-section + .sig-section { border-top: 1px solid #E4E8F0; }
+
+.sig-label { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.sig-label h2 { font-size: 22px; }
+.copy-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 20px; background: var(--gold); color: var(--navy);
+    font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;
+    border: none; border-radius: 4px; cursor: pointer; transition: all 0.2s;
+}
+.copy-btn:hover { background: #E0BA5C; transform: translateY(-1px); }
+.copy-btn.copied { background: #34A853; color: white; }
+
+.sig-preview {
+    background: var(--white); border: 1px solid #E4E8F0; border-radius: 8px;
+    padding: 32px; box-shadow: 0 2px 12px rgba(27,42,74,0.06);
+}
+
+.instructions {
+    background: var(--sand); border-radius: 8px; padding: 28px 32px; margin: 48px 0;
+}
+.instructions h3 { font-size: 18px; margin-bottom: 12px; color: var(--navy); }
+.instructions ol { padding-left: 20px; font-size: 14px; color: var(--grey-600); }
+.instructions li { margin-bottom: 8px; }
+.instructions strong { color: var(--navy); }
+
+.note {
+    background: rgba(46,92,184,0.06); border-left: 3px solid var(--blue);
+    padding: 16px 20px; border-radius: 0 6px 6px 0; margin-top: 32px;
+    font-size: 13px; color: var(--grey-600);
+}
+
+footer { padding: 32px 0; text-align: center; border-top: 1px solid #E4E8F0; }
+footer p { font-size: 12px; color: var(--grey-400); }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+    <div class="container">
+        <h1>Email Signatures</h1>
+        <p>Warami Services — Ready to copy and paste</p>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="instructions">
+        <h3>How to set up your email signature</h3>
+        <ol>
+            <li>Click the <strong>Copy Signature</strong> button next to your name below</li>
+            <li>Open <strong>Gmail</strong> → Settings (gear icon) → See all settings → General → Signature</li>
+            <li>Click into the signature editor and press <strong>Ctrl+V</strong> (or Cmd+V on Mac) to paste</li>
+            <li>Click <strong>Save Changes</strong> at the bottom of the page</li>
+        </ol>
+        <p style="margin-top:12px; font-size:13px; color:var(--grey-400);"><strong>Outlook:</strong> File → Options → Mail → Signatures → paste into the editor.</p>
+    </div>
+
+    <!-- ============ TOM BOWLER ============ -->
+    <div class="sig-section">
+        <div class="sig-label">
+            <h2>Tom Bowler</h2>
+            <button class="copy-btn" onclick="copySig('sig-tom', this)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                Copy Signature
+            </button>
+        </div>
+        <div class="sig-preview">
+            <div id="sig-tom">
+                <table cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#1B2A4A;line-height:1.4;">
+                    <tr><td style="padding-bottom:12px;">
+                        <table cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td style="vertical-align:middle;padding-right:16px;border-right:2px solid #D4A843;">
+                                <img src="https://katherinec-ux.github.io/clients/warami/warami-sig-logo.png" width="52" height="52" alt="Warami Services" style="display:block;border:0;" />
+                            </td>
+                            <td style="vertical-align:middle;padding-left:16px;">
+                                <span style="font-family:Georgia,'Times New Roman',serif;font-size:17px;font-weight:400;color:#1B2A4A;display:block;line-height:1.2;">Tom Bowler</span>
+                                <span style="font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#D4A843;display:block;margin-top:3px;">Construction Manager · Co-Founder</span>
+                            </td>
+                        </tr></table>
+                    </td></tr>
+                    <tr><td style="padding-top:12px;border-top:1px solid #E4E8F0;">
+                        <table cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#666666;line-height:1.7;">
+                            <tr><td style="padding-right:6px;color:#D4A843;font-size:13px;">&#9742;</td><td><a href="tel:0431540545" style="color:#666666;text-decoration:none;">0431 540 545</a></td></tr>
+                            <tr><td style="padding-right:6px;color:#D4A843;font-size:13px;">&#9993;</td><td><a href="mailto:tom@waramiservices.com" style="color:#666666;text-decoration:none;">tom@waramiservices.com</a></td></tr>
+                            <tr><td style="padding-right:6px;color:#D4A843;font-size:13px;">&#9679;</td><td><a href="https://www.waramiservices.com" style="color:#666666;text-decoration:none;">waramiservices.com</a></td></tr>
+                        </table>
+                    </td></tr>
+                    <tr><td style="padding-top:10px;">
+                        <span style="font-family:Arial,Helvetica,sans-serif;font-size:9px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#B8903A;">Supply Nation Registered&nbsp;&nbsp;·&nbsp;&nbsp;Indigenous-Owned</span>
+                    </td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ GUY CARTER ============ -->
+    <div class="sig-section">
+        <div class="sig-label">
+            <h2>Guy Carter</h2>
+            <button class="copy-btn" onclick="copySig('sig-guy', this)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                Copy Signature
+            </button>
+        </div>
+        <div class="sig-preview">
+            <div id="sig-guy">
+                <table cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#1B2A4A;line-height:1.4;">
+                    <tr><td style="padding-bottom:12px;">
+                        <table cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td style="vertical-align:middle;padding-right:16px;border-right:2px solid #D4A843;">
+                                <img src="https://katherinec-ux.github.io/clients/warami/warami-sig-logo.png" width="52" height="52" alt="Warami Services" style="display:block;border:0;" />
+                            </td>
+                            <td style="vertical-align:middle;padding-left:16px;">
+                                <span style="font-family:Georgia,'Times New Roman',serif;font-size:17px;font-weight:400;color:#1B2A4A;display:block;line-height:1.2;">Guy Carter</span>
+                                <span style="font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#D4A843;display:block;margin-top:3px;">Business Development · Co-Founder</span>
+                            </td>
+                        </tr></table>
+                    </td></tr>
+                    <tr><td style="padding-top:12px;border-top:1px solid #E4E8F0;">
+                        <table cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#666666;line-height:1.7;">
+                            <tr><td style="padding-right:6px;color:#D4A843;font-size:13px;">&#9742;</td><td><a href="tel:0431540545" style="color:#666666;text-decoration:none;">0431 540 545</a></td></tr>
+                            <tr><td style="padding-right:6px;color:#D4A843;font-size:13px;">&#9993;</td><td><a href="mailto:guy@waramiservices.com" style="color:#666666;text-decoration:none;">guy@waramiservices.com</a></td></tr>
+                            <tr><td style="padding-right:6px;color:#D4A843;font-size:13px;">&#9679;</td><td><a href="https://www.waramiservices.com" style="color:#666666;text-decoration:none;">waramiservices.com</a></td></tr>
+                        </table>
+                    </td></tr>
+                    <tr><td style="padding-top:10px;">
+                        <span style="font-family:Arial,Helvetica,sans-serif;font-size:9px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#B8903A;">Supply Nation Registered&nbsp;&nbsp;·&nbsp;&nbsp;Indigenous-Owned</span>
+                    </td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ TEMPLATE ============ -->
+    <div class="sig-section">
+        <div class="sig-label">
+            <h2>Blank Template</h2>
+            <button class="copy-btn" onclick="copySig('sig-template', this)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                Copy Signature
+            </button>
+        </div>
+        <div class="sig-preview">
+            <div id="sig-template">
+                <table cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#1B2A4A;line-height:1.4;">
+                    <tr><td style="padding-bottom:12px;">
+                        <table cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td style="vertical-align:middle;padding-right:16px;border-right:2px solid #D4A843;">
+                                <img src="https://katherinec-ux.github.io/clients/warami/warami-sig-logo.png" width="52" height="52" alt="Warami Services" style="display:block;border:0;" />
+                            </td>
+                            <td style="vertical-align:middle;padding-left:16px;">
+                                <span style="font-family:Georgia,'Times New Roman',serif;font-size:17px;font-weight:400;color:#1B2A4A;display:block;line-height:1.2;">[Full Name]</span>
+                                <span style="font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#D4A843;display:block;margin-top:3px;">[Position Title]</span>
+                            </td>
+                        </tr></table>
+                    </td></tr>
+                    <tr><td style="padding-top:12px;border-top:1px solid #E4E8F0;">
+                        <table cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#666666;line-height:1.7;">
+                            <tr><td style="padding-right:6px;color:#D4A843;font-size:13px;">&#9742;</td><td>[Phone Number]</td></tr>
+                            <tr><td style="padding-right:6px;color:#D4A843;font-size:13px;">&#9993;</td><td>[email@waramiservices.com]</td></tr>
+                            <tr><td style="padding-right:6px;color:#D4A843;font-size:13px;">&#9679;</td><td><a href="https://www.waramiservices.com" style="color:#666666;text-decoration:none;">waramiservices.com</a></td></tr>
+                        </table>
+                    </td></tr>
+                    <tr><td style="padding-top:10px;">
+                        <span style="font-family:Arial,Helvetica,sans-serif;font-size:9px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#B8903A;">Supply Nation Registered&nbsp;&nbsp;·&nbsp;&nbsp;Indigenous-Owned</span>
+                    </td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="note">
+        <strong>Logo image:</strong> The signature references the logo at <code>katherinec-ux.github.io/clients/warami/warami-sig-logo.png</code>. This image is hosted and will display automatically in all email clients that load images. If recipients have images blocked, your name and role will still display correctly.
+    </div>
+
+</div>
+
+<footer>
+    <div class="container">
+        <p>Warami Services — Email Signature Kit</p>
+    </div>
+</footer>
+
+<script>
+function copySig(id, btn) {
+    var sig = document.getElementById(id);
+    var range = document.createRange();
+    range.selectNodeContents(sig);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    document.execCommand('copy');
+    sel.removeAllRanges();
+    btn.classList.add('copied');
+    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Copied!';
+    setTimeout(function() {
+        btn.classList.remove('copied');
+        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy Signature';
+    }, 2000);
+}
+</script>
+</body>
+</html>
