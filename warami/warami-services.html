@@ -2239,39 +2239,45 @@
                 <div class="lead-form-wrapper">
                     <h3>Request a Capability Statement</h3>
                     <p>Fill in the details below and we'll send it through directly.</p>
-                    <form class="lead-form" action="#" method="POST" id="leadForm">
+                    <form class="lead-form" action="https://formsubmit.co/tom@waramiservices.com" method="POST" id="leadForm">
+                        <!-- Formsubmit.co settings -->
+                        <input type="hidden" name="_subject" value="New Enquiry — Warami Services Website">
+                        <input type="hidden" name="_captcha" value="true">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="text" name="_honey" style="display:none">
+                        <input type="hidden" name="_next" value="https://katherinec-ux.github.io/clients/warami/warami-services.html#contact">
                         <div class="form-row">
                             <div class="form-field">
                                 <label for="firstName">First Name</label>
-                                <input type="text" id="firstName" name="firstName" placeholder="First name" required>
+                                <input type="text" id="firstName" name="First Name" placeholder="First name" required>
                             </div>
                             <div class="form-field">
                                 <label for="lastName">Last Name</label>
-                                <input type="text" id="lastName" name="lastName" placeholder="Last name" required>
+                                <input type="text" id="lastName" name="Last Name" placeholder="Last name" required>
                             </div>
                         </div>
                         <div class="form-field">
                             <label for="email">Work Email</label>
-                            <input type="email" id="email" name="email" placeholder="you@company.com.au" required>
+                            <input type="email" id="email" name="Email" placeholder="you@company.com.au" required>
                         </div>
                         <div class="form-field">
                             <label for="company">Company / Organisation</label>
-                            <input type="text" id="company" name="company" placeholder="Organisation name">
+                            <input type="text" id="company" name="Company" placeholder="Organisation name">
                         </div>
                         <div class="form-field">
                             <label for="interest">What are you looking for?</label>
-                            <select id="interest" name="interest">
+                            <select id="interest" name="Interest">
                                 <option value="" disabled selected>Select an option</option>
-                                <option value="capability">Capability Statement</option>
-                                <option value="quote">Project Quote</option>
-                                <option value="partnership">Partnership Discussion</option>
-                                <option value="procurement">Indigenous Procurement Enquiry</option>
-                                <option value="other">Other</option>
+                                <option value="Capability Statement">Capability Statement</option>
+                                <option value="Project Quote">Project Quote</option>
+                                <option value="Partnership Discussion">Partnership Discussion</option>
+                                <option value="Indigenous Procurement Enquiry">Indigenous Procurement Enquiry</option>
+                                <option value="Other">Other</option>
                             </select>
                         </div>
                         <div class="form-field">
                             <label for="message">Message (Optional)</label>
-                            <textarea id="message" name="message" rows="3" placeholder="Tell us briefly about your project or requirements..."></textarea>
+                            <textarea id="message" name="Message" rows="3" placeholder="Tell us briefly about your project or requirements..."></textarea>
                         </div>
                         <button type="submit" class="form-submit">
                             Send Enquiry
