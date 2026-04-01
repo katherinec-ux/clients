@@ -2774,19 +2774,23 @@
         form.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            // Collect form data
             const formData = new FormData(form);
-            const data = Object.fromEntries(formData);
 
-            // Log to console (replace with actual form endpoint)
-            console.log('Form submission:', data);
-
-            // Show success message
-            form.style.display = 'none';
-            formSuccess.classList.add('is-visible');
-
-            // Scroll to success message
-            formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            fetch('https://formspree.io/f/katherine.chalhoub@gmail.com', {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    form.style.display = 'none';
+                    formSuccess.classList.add('is-visible');
+                    formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    alert('Something went wrong. Please try again or email me directly.');
+                }
+            }).catch(() => {
+                alert('Something went wrong. Please try again or email me directly.');
+            });
         });
 
         // Review carousel — show multiple cards at a time
