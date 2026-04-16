@@ -62,6 +62,17 @@ h1, h2, h3 { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; 
     font-size: 13px; color: var(--grey-600);
 }
 
+.download-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 20px; background: var(--navy); color: var(--white);
+    font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;
+    border: none; border-radius: 4px; cursor: pointer; text-decoration: none;
+    transition: all 0.2s;
+}
+.download-btn:hover { background: #2a3f6e; transform: translateY(-1px); }
+
+.sig-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
 footer { padding: 32px 0; text-align: center; border-top: 1px solid #E4E8F0; }
 footer p { font-size: 12px; color: var(--grey-400); }
 </style>
@@ -78,17 +89,26 @@ footer p { font-size: 12px; color: var(--grey-400); }
 <div class="container">
 
     <div class="instructions">
-        <h3>How to set up your email signature</h3>
+        <h3>How to install your email signature</h3>
+
+        <p style="font-size:14px;margin-bottom:16px;color:var(--navy);font-weight:600;">Recommended method — Download file:</p>
         <ol>
-            <li>Click the <strong>Copy Signature</strong> button next to your name below — it copies the formatted signature to your clipboard</li>
-            <li>If the button says <em>"Selected — press Cmd/Ctrl+C"</em>, your browser blocked auto-copy — just press <strong>Cmd+C</strong> (Mac) or <strong>Ctrl+C</strong> (Windows) while the signature is highlighted</li>
-            <li><strong>Gmail:</strong> Settings (⚙️ gear) → See all settings → General → Signature → create/edit your signature → paste with <strong>Ctrl+V / Cmd+V</strong> → Save Changes at the bottom</li>
-            <li><strong>Outlook Desktop:</strong> File → Options → Mail → Signatures → New or select existing → paste into the editor box → OK</li>
-            <li><strong>Outlook 365 (web):</strong> Settings → Mail → Compose and reply → Email signature → paste → Save</li>
-            <li><strong>Apple Mail:</strong> Mail → Settings → Signatures → select account → + → paste into the right-hand field</li>
+            <li>Click the <strong>Download Signature File</strong> button next to your name below — opens your personal signature file in the browser</li>
+            <li>Press <strong>Cmd+A</strong> (Mac) or <strong>Ctrl+A</strong> (Windows) to select everything on the page</li>
+            <li>Press <strong>Cmd+C / Ctrl+C</strong> to copy</li>
+            <li>Go to your email settings and paste with <strong>Cmd+V / Ctrl+V</strong> (see platform steps below)</li>
         </ol>
-        <p style="margin-top:16px; font-size:13px; color:var(--grey-400);">
-            <strong>Tip:</strong> Make sure to paste using the keyboard shortcut (Ctrl+V / Cmd+V), not right-click → Paste, as right-click paste may strip formatting in some email clients.
+
+        <p style="font-size:13px;margin-top:20px;margin-bottom:10px;font-weight:600;color:var(--navy);">Where to paste — by platform:</p>
+        <ul style="padding-left:20px;font-size:13px;color:var(--grey-600);">
+            <li style="margin-bottom:6px;"><strong>Gmail:</strong> Settings ⚙️ → See all settings → General → Signature → New or edit → paste → Save Changes at bottom of page</li>
+            <li style="margin-bottom:6px;"><strong>Outlook Desktop (Mac or Windows):</strong> File → Options → Mail → Signatures → New → paste into editor → OK</li>
+            <li style="margin-bottom:6px;"><strong>Outlook 365 (web):</strong> Settings → Mail → Compose and reply → Email signature → paste → Save</li>
+            <li style="margin-bottom:6px;"><strong>Apple Mail:</strong> Mail → Settings → Signatures → select account → + → paste into the right-hand panel</li>
+        </ul>
+
+        <p style="margin-top:16px;font-size:12px;color:var(--grey-400);">
+            <strong>Alternative:</strong> Use the <em>Copy Signature</em> button to copy directly to clipboard and paste into your email settings. If the button doesn't auto-copy, it will highlight the signature for you — press Cmd+C / Ctrl+C manually. Always paste with the keyboard shortcut, not right-click → Paste.
         </p>
     </div>
 
@@ -96,10 +116,16 @@ footer p { font-size: 12px; color: var(--grey-400); }
     <div class="sig-section">
         <div class="sig-label">
             <h2>Tom Bowler</h2>
-            <button class="copy-btn" onclick="copySig('sig-tom', this)">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                Copy Signature
-            </button>
+            <div class="sig-actions">
+                <a class="download-btn" href="warami-sig-tom.htm" target="_blank">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Download Signature File
+                </a>
+                <button class="copy-btn" onclick="copySig('sig-tom', this)">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                    Copy Signature
+                </button>
+            </div>
         </div>
         <div class="sig-preview">
             <div id="sig-tom">
@@ -125,7 +151,7 @@ footer p { font-size: 12px; color: var(--grey-400); }
                     <tr><td style="padding-top:10px;">
                         <span style="font-family:Arial,Helvetica,sans-serif;font-size:9px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#B8903A;">Supply Nation Registered&nbsp;&nbsp;·&nbsp;&nbsp;Indigenous-Owned</span>
                     </td></tr>
-                    <tr><td style="padding-top:10px;border-top:1px solid #E4E8F0;margin-top:10px;">
+                    <tr><td style="padding-top:10px;border-top:1px solid #E4E8F0;">
                         <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;border:0;"><tr>
                             <td style="padding-right:24px;vertical-align:middle;"><img src="https://katherinec-ux.github.io/clients/warami/warami-affil-yarpa.png" height="22" alt="YARPA" style="display:block;border:0;height:22px;width:auto;max-width:150px;" /></td>
                             <td style="padding-right:24px;vertical-align:middle;"><img src="https://katherinec-ux.github.io/clients/warami/warami-affil-supplynation.png" height="22" alt="Supply Nation" style="display:block;border:0;height:22px;width:auto;max-width:150px;" /></td>
@@ -141,10 +167,16 @@ footer p { font-size: 12px; color: var(--grey-400); }
     <div class="sig-section">
         <div class="sig-label">
             <h2>Guy Carter</h2>
-            <button class="copy-btn" onclick="copySig('sig-guy', this)">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                Copy Signature
-            </button>
+            <div class="sig-actions">
+                <a class="download-btn" href="warami-sig-guy.htm" target="_blank">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Download Signature File
+                </a>
+                <button class="copy-btn" onclick="copySig('sig-guy', this)">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                    Copy Signature
+                </button>
+            </div>
         </div>
         <div class="sig-preview">
             <div id="sig-guy">
@@ -170,7 +202,7 @@ footer p { font-size: 12px; color: var(--grey-400); }
                     <tr><td style="padding-top:10px;">
                         <span style="font-family:Arial,Helvetica,sans-serif;font-size:9px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#B8903A;">Supply Nation Registered&nbsp;&nbsp;·&nbsp;&nbsp;Indigenous-Owned</span>
                     </td></tr>
-                    <tr><td style="padding-top:10px;border-top:1px solid #E4E8F0;margin-top:10px;">
+                    <tr><td style="padding-top:10px;border-top:1px solid #E4E8F0;">
                         <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;border:0;"><tr>
                             <td style="padding-right:24px;vertical-align:middle;"><img src="https://katherinec-ux.github.io/clients/warami/warami-affil-yarpa.png" height="22" alt="YARPA" style="display:block;border:0;height:22px;width:auto;max-width:150px;" /></td>
                             <td style="padding-right:24px;vertical-align:middle;"><img src="https://katherinec-ux.github.io/clients/warami/warami-affil-supplynation.png" height="22" alt="Supply Nation" style="display:block;border:0;height:22px;width:auto;max-width:150px;" /></td>
@@ -215,7 +247,7 @@ footer p { font-size: 12px; color: var(--grey-400); }
                     <tr><td style="padding-top:10px;">
                         <span style="font-family:Arial,Helvetica,sans-serif;font-size:9px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#B8903A;">Supply Nation Registered&nbsp;&nbsp;·&nbsp;&nbsp;Indigenous-Owned</span>
                     </td></tr>
-                    <tr><td style="padding-top:10px;border-top:1px solid #E4E8F0;margin-top:10px;">
+                    <tr><td style="padding-top:10px;border-top:1px solid #E4E8F0;">
                         <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;border:0;"><tr>
                             <td style="padding-right:24px;vertical-align:middle;"><img src="https://katherinec-ux.github.io/clients/warami/warami-affil-yarpa.png" height="22" alt="YARPA" style="display:block;border:0;height:22px;width:auto;max-width:150px;" /></td>
                             <td style="padding-right:24px;vertical-align:middle;"><img src="https://katherinec-ux.github.io/clients/warami/warami-affil-supplynation.png" height="22" alt="Supply Nation" style="display:block;border:0;height:22px;width:auto;max-width:150px;" /></td>
