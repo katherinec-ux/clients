@@ -80,12 +80,16 @@ footer p { font-size: 12px; color: var(--grey-400); }
     <div class="instructions">
         <h3>How to set up your email signature</h3>
         <ol>
-            <li>Click the <strong>Copy Signature</strong> button next to your name below</li>
-            <li>Open <strong>Gmail</strong> → Settings (gear icon) → See all settings → General → Signature</li>
-            <li>Click into the signature editor and press <strong>Ctrl+V</strong> (or Cmd+V on Mac) to paste</li>
-            <li>Click <strong>Save Changes</strong> at the bottom of the page</li>
+            <li>Click the <strong>Copy Signature</strong> button next to your name below — it copies the formatted signature to your clipboard</li>
+            <li>If the button says <em>"Selected — press Cmd/Ctrl+C"</em>, your browser blocked auto-copy — just press <strong>Cmd+C</strong> (Mac) or <strong>Ctrl+C</strong> (Windows) while the signature is highlighted</li>
+            <li><strong>Gmail:</strong> Settings (⚙️ gear) → See all settings → General → Signature → create/edit your signature → paste with <strong>Ctrl+V / Cmd+V</strong> → Save Changes at the bottom</li>
+            <li><strong>Outlook Desktop:</strong> File → Options → Mail → Signatures → New or select existing → paste into the editor box → OK</li>
+            <li><strong>Outlook 365 (web):</strong> Settings → Mail → Compose and reply → Email signature → paste → Save</li>
+            <li><strong>Apple Mail:</strong> Mail → Settings → Signatures → select account → + → paste into the right-hand field</li>
         </ol>
-        <p style="margin-top:12px; font-size:13px; color:var(--grey-400);"><strong>Outlook:</strong> File → Options → Mail → Signatures → paste into the editor.</p>
+        <p style="margin-top:16px; font-size:13px; color:var(--grey-400);">
+            <strong>Tip:</strong> Make sure to paste using the keyboard shortcut (Ctrl+V / Cmd+V), not right-click → Paste, as right-click paste may strip formatting in some email clients.
+        </p>
     </div>
 
     <!-- ============ TOM BOWLER ============ -->
@@ -236,21 +240,61 @@ footer p { font-size: 12px; color: var(--grey-400); }
 </footer>
 
 <script>
-function copySig(id, btn) {
+async function copySig(id, btn) {
     var sig = document.getElementById(id);
-    var range = document.createRange();
-    range.selectNodeContents(sig);
-    var sel = window.getSelection();
-    sel.removeAllRanges();
-    sel.addRange(range);
-    document.execCommand('copy');
-    sel.removeAllRanges();
-    btn.classList.add('copied');
-    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Copied!';
-    setTimeout(function() {
-        btn.classList.remove('copied');
-        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy Signature';
-    }, 2000);
+    var html = sig.innerHTML;
+    var plain = sig.innerText || sig.textContent;
+    var success = false;
+
+    // Method 1: Modern Clipboard API with HTML (works in Chrome 86+, Safari 13.1+, Edge 86+)
+    if (window.ClipboardItem && navigator.clipboard && navigator.clipboard.write) {
+        try {
+            await navigator.clipboard.write([
+                new ClipboardItem({
+                    'text/html': new Blob([html], { type: 'text/html' }),
+                    'text/plain': new Blob([plain], { type: 'text/plain' })
+                })
+            ]);
+            success = true;
+        } catch (e) { /* fall through */ }
+    }
+
+    // Method 2: Legacy execCommand fallback (deprecated but broad compatibility)
+    if (!success) {
+        try {
+            var range = document.createRange();
+            range.selectNodeContents(sig);
+            var sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(range);
+            success = document.execCommand('copy');
+            sel.removeAllRanges();
+        } catch (e) { success = false; }
+    }
+
+    if (success) {
+        btn.classList.add('copied');
+        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Copied!';
+        setTimeout(function() {
+            btn.classList.remove('copied');
+            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy Signature';
+        }, 2000);
+    } else {
+        // Method 3: Select the signature so user can manually Cmd/Ctrl+C
+        var range = document.createRange();
+        range.selectNodeContents(sig);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        btn.classList.add('copied');
+        btn.style.background = '#F59E0B';
+        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> Selected — press Cmd/Ctrl+C';
+        setTimeout(function() {
+            btn.classList.remove('copied');
+            btn.style.background = '';
+            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy Signature';
+        }, 4000);
+    }
 }
 </script>
 </body>
